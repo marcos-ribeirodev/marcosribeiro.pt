@@ -102,6 +102,9 @@ footer {
     transition: background-color 0.3s ease;
 }
 
+a.btn {
+    margin: 15px;
+}
 .btn:hover {
     background-color: #0097a7;
 }
@@ -285,6 +288,7 @@ h1, h2 {
     color: #cccccc;
     margin-bottom: 20px;
 }
+  
 
 /* CONTACTO */
 .contacto-section {

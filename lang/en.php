@@ -79,6 +79,8 @@ $texto_portfolio = "My Portfolio";
 $texto_portfolio_titulo = "Portfolio";
 $texto_em_breve = "New project in development. Stay tuned!";
 $ver_mais = "See more";
+$texto_portfolio_titulo1 = "Personal website";
+$texto_em_breve1 = "With my professionalportfolio and contact information.";
 
 
 // Contacto

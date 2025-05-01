@@ -6,6 +6,14 @@ $imagem_portfolio = $lang === "en" ? "imagens/coming_soon.png" : "imagens/brevem
     <h2><?= $texto_portfolio ?></h2>
     <div class="portfolio-grid">
 
+        <div class="portfolio-card">
+            <img src="imagens/personal.png" alt="Em breve" class="portfolio-img" />
+            <h3><?= $texto_portfolio_titulo1 ?></h3>
+            <p><?= $texto_em_breve1 ?></p>
+            <a href="https://marcosribeiro.pt/" class="btn">Ver mais</a>
+            <a href="https://github.com/marcos-ribeirodev/marcosribeiro.pt" class="btn">Github</a>
+
+        </div>
 
         <div class="portfolio-card">
             <img src="<?= $imagem_portfolio ?>" alt="Em breve" class="portfolio-img" />

@@ -81,6 +81,11 @@ $texto_portfolio_titulo = "Portefólio";
 $texto_em_breve = "Projecto novo a ser desenvolvido. Fica atento!";
 $ver_mais = "Ver mais";
 
+
+$texto_portfolio_titulo1 = "website pessoal";
+$texto_em_breve1 = "Projecto com o meu portfólio profissional e informação de contacto.";
+$ver_mais = "Ver mais";
+
 // Contacto
 $texto_contacto_titulo = "Contacto";
 $texto_contacto_msg = "Tens um projecto? Envia-me uma mensagem.";
