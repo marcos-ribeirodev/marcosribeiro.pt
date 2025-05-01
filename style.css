@@ -210,13 +210,13 @@ h1, h2 {
 }
 
 .perfil-caixa {
-    background-color: #121212;
-    padding: 40px 30px;
-    border-radius: 12px;
-    box-shadow: 0 5px 15px rgba(0, 188, 212, 0.2);
-    max-width: 800px;
-    margin: auto;
-    text-align: left;
+    background-color: #121212 !important ;
+    padding: 40px 30px!important;
+    border-radius: 12px !important;
+    box-shadow: 0 5px 15px rgba(0, 188, 212, 0.2) !important;
+    max-width: 800px !important;
+    margin: auto !important;
+    text-align: left !important;
 }
 
 .perfil-caixa h3 {

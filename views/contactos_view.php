@@ -3,17 +3,39 @@ $form = !empty($_POST["nome"]) && !empty($_POST["email"]) && !empty($_POST["mens
 $mensagem_enviada = null;
 
 if ($form) {
-    $nome = $_POST["nome"];
-    $email = $_POST["email"];
-    $mensagem = $_POST["mensagem"];
+    // Validar reCAPTCHA
+    $secret = "6LeoAisrAAAAAMh0f4BdZ2BOSJRM6J-MQ3q6H1Oo"; // <- A tua Secret Key
+    $response = $_POST['g-recaptcha-response'] ?? '';
 
-    if ($email) {
+    $verifica = file_get_contents("https://www.google.com/recaptcha/api/siteverify?secret=$secret&response=$response");
+    $resposta = json_decode($verifica);
+
+    if (!$resposta->success) {
+        $mensagem_enviada = [
+            "tipo" => "erro",
+            "mensagem" => "Verificação reCAPTCHA falhou. Por favor tenta novamente."
+        ];
+    } else {
+        $nome     = $_POST["nome"];
+        $email    = $_POST["email"];
+        $mensagem = $_POST["mensagem"];
+
         $destinatario = "marcos@marcosribeiro.pt";
 
-        $headers = "MIME-Version: 1.0\r\n";
-        $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
+        $mensagem_html = "
+        <html><body>
+        <h2>Mensagem do formulário de contacto</h2>
+        <p><strong>Nome:</strong> $nome</p>
+        <p><strong>Email:</strong> $email</p>
+        <p><strong>Mensagem:</strong><br>$mensagem</p>
+        </body></html>";
 
-        if (mail($destinatario, $nome, $mensagem, $headers)) {
+        $headers  = "MIME-Version: 1.0\r\n";
+        $headers .= "Content-Type: text/html; charset=UTF-8\r\n";
+        $headers .= "From: marcos@marcosribeiro.pt\r\n";
+        $headers .= "Reply-To: $email\r\n";
+
+        if (mail($destinatario, $nome, $mensagem_html, $headers)) {
             $mensagem_enviada = [
                 "tipo" => "sucesso",
                 "mensagem" => "Obrigado pela sua mensagem! Entrarei em contacto em breve."
@@ -27,6 +49,7 @@ if ($form) {
     }
 }
 ?>
+
 
 <main class="contacto-section">
     <h2><?= $texto_contacto_titulo ?></h2>
@@ -52,6 +75,10 @@ if ($form) {
             <i class="fa-solid fa-message"></i>
             <textarea id="mensagem" name="mensagem" rows="5" placeholder="<?= $contacto_mensagem ?>" required></textarea>
         </div>
+        <div class="form-group">
+            <div class="g-recaptcha" data-sitekey="6LeoAisrAAAAAAHaugBFXgdnLxhPspjaplBFRwS4"></div>
+        </div>
+        <script src="https://www.google.com/recaptcha/api.js" async defer></script>
         <div class="form-group">
             <button type="submit"><?= $texto_botao_contacto ?></button>
         </div>
