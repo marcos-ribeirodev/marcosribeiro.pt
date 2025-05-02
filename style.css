@@ -68,6 +68,21 @@ nav a {
 nav a:hover {
     color: #00bcd4;
 }
+.navbar_row a{
+    color: #e0e0e0;
+}
+nav a, .menu-toggle, .menu-idiomas a {
+    color: #ffffff !important;
+}
+
+.menu-toggle:hover {
+    color: #00bcd4;
+}
+
+.menu-idiomas a:hover {
+    color: #00bcd4;
+}
+
 
 /* Área Principal */
 main {
@@ -210,8 +225,8 @@ h1, h2 {
 }
 
 .perfil-caixa {
-    background-color: #121212 !important ;
-    padding: 40px 30px!important;
+    background-color: #121212 !important;
+    padding: 40px 30px !important;
     border-radius: 12px !important;
     box-shadow: 0 5px 15px rgba(0, 188, 212, 0.2) !important;
     max-width: 800px !important;
@@ -377,4 +392,61 @@ input:focus, textarea:focus {
     border-color: #00bcd4;
 }
 
+/* === RESPONSIVO === */
+@media (max-width: 768px) {
+  .logo {
+        font-size: 10px;
+    }
+    
+  .caixa {
+    width: 90%;
+    margin: auto;
+    padding: 1rem;
+  }
+
+  .form-contacto input,
+  .form-contacto textarea {
+    width: 100%;
+    box-sizing: border-box;
+    margin-bottom: 1rem;
+  }
+
+  .form-contacto {
+    display: flex;
+    flex-direction: column;
+  }
+}
+
+
+@media (max-width: 480px) {
+  .sobre-card,
+  .perfil-caixa {
+    padding: 20px 15px;
+    width: 100%;
+    box-sizing: border-box;
+  }
+
+  .home-img {
+    width: 250px;
+    height: 250px;
+  }
+
+  h1, h2 {
+    font-size: 24px;
+  }
+
+  .btn {
+    width: 100%;
+    text-align: center;
+  }
+
+  input, textarea {
+    font-size: 14px;
+  }
+
+  .contacto-form {
+    max-width: 100%;
+    padding: 0 10px;
+  }
+}
 
